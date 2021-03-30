@@ -1,0 +1,14 @@
+#!/bin/sh
+
+BACKUP_FOLDER=/backup/dolibarr
+NOW=$(date '+%Y-%m-%d')
+
+TAR=$(which tar)
+
+### Dolibarr documents folder to backup ###
+DOCUMENTS=/var/www/documents
+
+[ ! -d "$BACKUP_FOLDER" ] && mkdir --parents $BACKUP_FOLDER
+
+FILE=${BACKUP_FOLDER}/${NOW}-${DOLIBARR_CONTAINER_NAME}-documents.gz
+$TAR -czf $FILE $DOCUMENTS
