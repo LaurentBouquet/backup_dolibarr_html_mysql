@@ -14,5 +14,5 @@ MUSER=root
 
 [ ! -d "$BACKUP_FOLDER" ] && mkdir --parents $BACKUP_FOLDER
 
-FILE=${BACKUP_FOLDER}/${NOW}-${DOLIBARR_CONTAINER_NAME}-database.gz
+FILE=${BACKUP_FOLDER}/${NOW}-${DOLIBARR_CONTAINER_NAME}-database.sql.gz
 $MYSQLDUMP -h $MHOST -u $MUSER -p${MPASS} --databases $MDB | $GZIP -9 > $FILE
